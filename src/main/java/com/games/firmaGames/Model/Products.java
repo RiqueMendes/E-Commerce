@@ -1,15 +1,19 @@
-import java.util.Locale.Category;
+package com.games.firmaGames.Model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "product")
-public class products {
+public class Products {
 
-    @Id
-    @GeneratedValue(strategy = GeneratedType.IDENTITY)
-    private long id;
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   private long id;
 
     @NotNull
     private String description;
@@ -22,9 +26,9 @@ public class products {
 
 
     
-	@ManyToOne
-	@JsonIgnoreProperties("products")
-	private Category category;
+	// @ManyToOne
+	// @JsonIgnoreProperties("products")
+	// private Category category;
 
 
 
@@ -76,14 +80,14 @@ public class products {
 
 
 
-    public Category getCategory() {
-        return category;
-    }
+    // public Category getCategory() {
+    //     return category;
+    // }
 
 
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
+    // public void setCategory(Category category) {
+    //     this.category = category;
+    // }
     
 }

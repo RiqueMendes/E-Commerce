@@ -1,28 +1,32 @@
+package com.games.firmaGames.Model;
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.GenerationType;
 
 @Entity
 @Table(name = "category")
-public class category {
+public class Category {
 
     @Id
-    @GeneratedValue(strategy = GeneratedType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    
-	@NotNull
-	private String gender;
+    @NotNull
+    private String gender;
 
-	@NotNull
-	private String producer;
+    @NotNull
+    private String producer;
 
-	@NotNull
-	private String description;
-
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("category")
-	private List<Produto> products;
+    @NotNull
+    private String description;
 
     public long getId() {
         return id;
@@ -56,12 +60,5 @@ public class category {
         this.description = description;
     }
 
-    public List<Produto> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Produto> products) {
-        this.products = products;
-    }
     
 }
