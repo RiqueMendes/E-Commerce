@@ -10,7 +10,7 @@ import com.games.firmaGames.Model.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 	
-	public List<Category> findAllByGenderContainingIgnoreCase(String gender);
+	public List<Category> findAllByProducerContainingIgnoreCase(String producer);
 	
 	public List<Category> findAllByDescriptionContainingIgnoreCase(String description);
     

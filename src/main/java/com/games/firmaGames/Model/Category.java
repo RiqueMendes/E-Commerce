@@ -12,15 +12,12 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.GenerationType;
 
 @Entity
-@Table(name = "category")
+@Table(name = "tb_category")
 public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @NotNull
-    private String gender;
 
     @NotNull
     private String producer;
@@ -34,14 +31,6 @@ public class Category {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public String getProducer() {
