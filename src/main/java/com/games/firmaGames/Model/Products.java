@@ -24,7 +24,6 @@ public class Products {
 	@NotNull
 	private double value;
 
-	 @NotNull
 	 private String gender;
     
 	// @ManyToOne
