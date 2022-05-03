@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "product")
+@Table(name = "tb_product")
 public class Products {
 
    @Id
@@ -24,7 +24,8 @@ public class Products {
 	@NotNull
 	private double value;
 
-
+	 @NotNull
+	 private String gender;
     
 	// @ManyToOne
 	// @JsonIgnoreProperties("products")
@@ -79,6 +80,18 @@ public class Products {
     }
 
 
+
+	public String getGender() {
+		return gender;
+	}
+
+
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+    
 
     // public Category getCategory() {
     //     return category;
