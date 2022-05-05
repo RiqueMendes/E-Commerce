@@ -1,14 +1,25 @@
 package com.games.firmaGames.Model;
 
 public class UserDTO {
+	
+	private long id;
 
 	private String name;	
+	
+	private String email;
 
 	private String password;	
 	
 	private String token;
 	
-	private String user;
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getName() {
 		return name;
@@ -34,13 +45,15 @@ public class UserDTO {
 		this.token = token;
 	}
 
-	public String getUser() {
-		return user;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUser(String user) {
-		this.user = user;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
+
 	
 	
 }
