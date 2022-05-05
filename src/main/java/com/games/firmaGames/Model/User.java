@@ -18,18 +18,18 @@ public class User {
     private long id;
     
     @NotNull
-    @Size(min = 2, max = 100)
+    @Size(min = 2)
     private String name;
 
     @NotNull
-    @Size (min = 2, max = 100)
-    private String user;
+    @Size (min = 2)
+    private String email;
 
     @NotNull
-    @Size(min = 5, max = 30)
+    @Size(min = 5)
     private String password;
 
-    public long getId() {
+	public long getId() {
         return id;
     }
 
@@ -45,12 +45,12 @@ public class User {
         this.name = name;
     }
 
-    public String getUser() {
-        return user;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

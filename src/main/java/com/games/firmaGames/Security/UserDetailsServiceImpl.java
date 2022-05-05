@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.games.firmaGames.Model.User;
 import com.games.firmaGames.Repository.UserRepository;
 
 
@@ -19,11 +20,13 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 	private UserRepository repository;
 	
 	@Override
-	public UserDetails loadUserByUsername (String userName) throws UsernameNotFoundException {	
-		Optional<com.games.firmaGames.Model.User> user = repository.findByUser(userName);
-		user.orElseThrow(() -> new UsernameNotFoundException(userName + "nenhum resultado encontrado."));
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		Optional<User> user = repository.findByEmail(email);
+		user.orElseThrow(() -> new UsernameNotFoundException (email + " Not Found.. "));
 		
-		return user.map(UserDetailsImpl::new).get();		
+		
+		return user.map(UserDetailsImpl::new).get();
+					
 	}
 }
 
