@@ -1,6 +1,5 @@
 package com.games.firmaGames.Model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,7 +27,8 @@ public class User {
     @NotNull
     @Size(min = 5)
     private String password;
-
+    
+    
 	public long getId() {
         return id;
     }
