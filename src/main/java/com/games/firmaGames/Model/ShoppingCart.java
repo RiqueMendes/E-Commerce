@@ -1,15 +1,13 @@
 package com.games.firmaGames.Model;
 
 
-import java.util.List;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -20,40 +18,47 @@ public class ShoppingCart {
     
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private long id;
 
-	private int quantity;
-
-	private double price;
 	
-    @OneToOne
-    @JsonIgnoreProperties("products")
-    private User user;
+   
+	@ManyToOne
+	@JsonIgnoreProperties("shoppingCart")
+	private User user;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("shoppingCart")
+	private Products product;
+	
    
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+
+    public User getUser() {
+        return user;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public double getPrice() {
-        return price;
+
+    public Products getProduct() {
+        return product;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }	
+
+    public void setProduct(Products product) {
+        this.product = product;
+    }
     
 }

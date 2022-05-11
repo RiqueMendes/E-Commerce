@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CartRepository extends JpaRepository<ShoppingCart, Long> {
 
-    public List<ShoppingCart> findAllByQuantity(int quantity);
+    public List<ShoppingCart> findAllById(long quantity);
 
 }
