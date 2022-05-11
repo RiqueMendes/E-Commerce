@@ -1,5 +1,6 @@
 package com.games.firmaGames.Model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,6 +34,20 @@ public class Products {
 	 @JsonIgnoreProperties("products")
 	 private Category category;
 
+
+     @ManyToOne
+     @JsonIgnoreProperties("products")
+     private ShoppingCart shoppingCart;
+
+
+     
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setShoppingCart(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 
     public long getId() {
         return id;
