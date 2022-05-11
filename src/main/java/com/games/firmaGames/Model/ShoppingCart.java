@@ -28,7 +28,7 @@ public class ShoppingCart {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("shoppingCart")
-	private Products product;
+	private Products products;
 	
    
 
@@ -52,13 +52,13 @@ public class ShoppingCart {
     }
 
 
-    public Products getProduct() {
-        return product;
-    }
+	public Products getProducts() {
+		return products;
+	}
 
 
-    public void setProduct(Products product) {
-        this.product = product;
-    }
+	public void setProducts(Products products) {
+		this.products = products;
+	}
     
 }

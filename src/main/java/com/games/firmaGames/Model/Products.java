@@ -38,7 +38,7 @@ public class Products {
 	 private Category category;
 
 
-    @OneToMany(mappedBy="products", cascade=CascadeType.REMOVE)
+    @OneToMany(mappedBy= "products", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("products")
 	private List<ShoppingCart> shoppingCart;
 
@@ -91,5 +91,13 @@ public class Products {
      public void setCategory(Category category) {
          this.category = category;
      }
-    
+
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+     
 }
