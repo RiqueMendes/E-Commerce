@@ -25,15 +25,11 @@ public class ShoppingCart {
 	private int quantity;
 
 	private double price;
-
 	
-	
-	@OneToMany(mappedBy = "shoppingCart", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("shoppingCart")
-	private List<Products> Products;
+    @OneToOne
+    @JsonIgnoreProperties("products")
+    private User user;
    
-
-	
 
     public int getId() {
         return id;
@@ -58,6 +54,6 @@ public class ShoppingCart {
 
     public void setPrice(double price) {
         this.price = price;
-    }
- 
+    }	
+    
 }
