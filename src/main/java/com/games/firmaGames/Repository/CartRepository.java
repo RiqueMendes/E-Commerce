@@ -11,6 +11,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CartRepository extends JpaRepository<ShoppingCart, Long> {
 
-    public List<ShoppingCart> findAllByQuantityContainingIgnoreCase(String quantity);
+    public List<ShoppingCart> findAllByQuantity(int quantity);
 
 }

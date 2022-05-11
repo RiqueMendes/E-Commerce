@@ -10,6 +10,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 
 @Entity
@@ -31,6 +33,10 @@ public class User {
     @NotNull
     @Size(min = 5)
     private String password;
+    
+    @OneToOne
+    @JsonIgnoreProperties("user")
+    private ShoppingCart shoppingCart;
 
 
     
