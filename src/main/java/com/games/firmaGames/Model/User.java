@@ -15,9 +15,6 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
-
-
-
 @Entity
 @Table(name ="tb_user")
 public class User {
@@ -76,5 +73,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public List<ShoppingCart> getShoppingCart() {
+		return shoppingCart;
+	}
+
+	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
 
 }
