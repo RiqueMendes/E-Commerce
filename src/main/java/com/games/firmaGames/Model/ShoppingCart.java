@@ -22,9 +22,10 @@ public class ShoppingCart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-
     @NotNull
     private long quantity;
+    
+    
 
 	@ManyToOne
 	@JsonIgnoreProperties("shoppingCart")
@@ -45,17 +46,17 @@ public class ShoppingCart {
         this.id = id;
     }
 
-    public Products getProduct() {
-        return product;
-    }
+    public Products getProducts() {
+		return products;
+	}
 
 
-    public void setProduct(Products product) {
-        this.product = product;
-    }
+	public void setProducts(Products products) {
+		this.products = products;
+	}
 
 
-    public long getQuantity() {
+	public long getQuantity() {
         return quantity;
     }
 
