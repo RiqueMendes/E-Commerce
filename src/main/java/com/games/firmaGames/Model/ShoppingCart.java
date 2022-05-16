@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -20,11 +22,13 @@ public class ShoppingCart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	
-   
+
+    @NotNull
+    private long quantity;
+
 	@ManyToOne
 	@JsonIgnoreProperties("shoppingCart")
-	private User user;
+	private Purchases purchases;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("shoppingCart")
@@ -41,17 +45,6 @@ public class ShoppingCart {
         this.id = id;
     }
 
-
-    public User getUser() {
-        return user;
-    }
-
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-
     public Products getProduct() {
         return product;
     }
@@ -60,5 +53,26 @@ public class ShoppingCart {
     public void setProduct(Products product) {
         this.product = product;
     }
+
+
+    public long getQuantity() {
+        return quantity;
+    }
+
+
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
+    }
+
+
+    public Purchases getPurchases() {
+        return purchases;
+    }
+
+
+    public void setPurchases(Purchases purchases) {
+        this.purchases = purchases;
+    }
+    
     
 }

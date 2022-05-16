@@ -34,12 +34,18 @@ public class User {
     @NotNull
     @Size(min = 5)
     private String password;
+
+    @NotNull
+    @Size(min=5)
+    private String endereço;
     
    
 
     @OneToMany(mappedBy="user", cascade=CascadeType.REMOVE)
     @JsonIgnoreProperties("user")
-    private List<ShoppingCart> shoppingCart;
+    private List<Purchases> purchases;
+    
+
     
     
 	public long getId() {
@@ -74,12 +80,23 @@ public class User {
         this.password = password;
     }
 
-	public List<ShoppingCart> getShoppingCart() {
-		return shoppingCart;
-	}
 
-	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
-		this.shoppingCart = shoppingCart;
-	}
+    public String getEndereço() {
+        return endereço;
+    }
+
+    public void setEndereço(String endereço) {
+        this.endereço = endereço;
+    }
+
+    public List<Purchases> getPurchases() {
+        return purchases;
+    }
+
+    public void setPurchases(List<Purchases> purchases) {
+        this.purchases = purchases;
+    }
+
+    
 
 }
