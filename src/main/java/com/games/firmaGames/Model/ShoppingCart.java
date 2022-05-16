@@ -32,7 +32,7 @@ public class ShoppingCart {
 	
 	@ManyToOne
 	@JsonIgnoreProperties("shoppingCart")
-	private Products product;
+	private Products products;
 	
    
 
