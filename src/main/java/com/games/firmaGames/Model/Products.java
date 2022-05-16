@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_product")
+@Table(name = "tb_products")
 public class Products {
 
    @Id
@@ -38,11 +38,18 @@ public class Products {
 	 private Category category;
 
 
+
     @OneToMany(mappedBy= "products", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("products")
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("product")
+
 	private List<ShoppingCart> shoppingCart;
 
-     
+    @ManyToOne
+    @JsonIgnoreProperties("products")
+    private Salesman salesman;
 
     public long getId() {
         return id;
@@ -99,5 +106,5 @@ public class Products {
 	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
 		this.shoppingCart = shoppingCart;
 	}
-     
+
 }
