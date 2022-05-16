@@ -18,70 +18,60 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "tb_products")
 public class Products {
 
-   @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
 
-    @NotNull
-    private String description;
+	@NotNull
+	private String description;
 
-    @NotNull
+	@NotNull
 	private String name;
 
 	@NotNull
 	private double value;
 
-	 private String gender;
-    
-	 @ManyToOne
-	 @JsonIgnoreProperties("products")
-	 private Category category;
+	private String gender;
 
-
-
-    @OneToMany(mappedBy= "products", cascade = CascadeType.REMOVE)
+	@ManyToOne
 	@JsonIgnoreProperties("products")
+	private Category category;
 
-    @OneToMany(mappedBy = "product", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("product")
+	@ManyToOne
+	@JsonIgnoreProperties("products")
+	private Salesman salesman;
 
-	private List<ShoppingCart> shoppingCart;
+	public long getId() {
+		return id;
+	}
 
-    @ManyToOne
-    @JsonIgnoreProperties("products")
-    private Salesman salesman;
+	public void setId(long id) {
+		this.id = id;
+	}
 
-    public long getId() {
-        return id;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setId(long id) {
-        this.id = id;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public double getValue() {
+		return value;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getValue() {
-        return value;
-    }
-
-    public void setValue(double value) {
-        this.value = value;
-    }
+	public void setValue(double value) {
+		this.value = value;
+	}
 
 	public String getGender() {
 		return gender;
@@ -91,20 +81,12 @@ public class Products {
 		this.gender = gender;
 	}
 
-     public Category getCategory() {
-         return category;
-     }
-
-     public void setCategory(Category category) {
-         this.category = category;
-     }
-
-	public List<ShoppingCart> getShoppingCart() {
-		return shoppingCart;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setShoppingCart(List<ShoppingCart> shoppingCart) {
-		this.shoppingCart = shoppingCart;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 }

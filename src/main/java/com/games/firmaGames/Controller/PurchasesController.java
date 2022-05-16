@@ -1,5 +1,6 @@
 package com.games.firmaGames.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.games.firmaGames.Model.PurchasesDTO;
@@ -23,11 +24,21 @@ public class PurchasesController {
     @Autowired
     private CartRepository cartRepository;
 		
-	@GetMapping
+	@GetMapping("/{id}")
 	public ResponseEntity <PurchasesDTO> getAllPurchases(Long Id){
+		List<ShoppingCart> meu = cartRepository.findAll();
         PurchasesDTO purchaseDto = new PurchasesDTO();
 		purchaseDto.setPurchase(repository.findById(Id).get());
-        purchaseDto.setShoppingList(cartRepository);
+		List<ShoppingCart> seu = new ArrayList<ShoppingCart>();
+		
+        for (ShoppingCart shoppingCart : meu) {
+        	if (shoppingCart.getPurchases().getId() == Id) {
+        		seu.add(shoppingCart);
+        	}
+		} 
+        
+        purchaseDto.setShoppingList(seu);
+        
         return ResponseEntity.ok(purchaseDto);
 	}
 
